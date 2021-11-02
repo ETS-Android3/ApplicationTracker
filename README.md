@@ -18,7 +18,7 @@ Application Tracker helps the user maintain a list of job applications and the s
 ### App Evaluation
 [Evaluation of your app across the following attributes]
 - **Category:** Productivity
-- **Mobile:**
+- **Mobile:** As a mobile app, it's easily accessible anytime.
 - **Story:** I believe the app could be very useful. The benefit of having access to all your applications on your phone can help users stay in track with their applications.
 - **Market:** Large market opportunity because software engineers can use this app repeatedly to track applications when they are searching for a job
 - **Habit:** App is not habit-forming or addictive. An average user will primarily create, but they can also consume.
@@ -99,8 +99,45 @@ Application Tracker helps the user maintain a list of job applications and the s
 ## Schema
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### Application
+
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| Company Name | String | name of company |
+| Date Applied | DateTime | date of application |
+| Status     | int     | status of application     |
+| Job Title     | String     | title of job     |
+| Notes     | String     | any notes the user wants to add   |
+| UserID     | String     | identifies user who made application (for networking requests) |
+
+
+#### User
+
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| UserID | String | primary key |
+| Email | String | user email |
+| Password | String | user password |
+| Name | String | name of user |
+
+
 ### Networking
-- [Add list of network requests by screen ]
+#### Network Request Lists:
+
+* Login Screen: 
+    * (Read/GET) Get user profile information if logging in
+    * (Create/POST) if user is registering
+
+* Application List (Stream): 
+    * (Read/GET): applications already created by user
+    * (Delete) Delete existing applications
+
+* Add Application (Create): 
+    * (Create/POST) - create a new application
+
+* Edit Application (Detail?): 
+    * (Update/PUT) - user can change application details and add notes
+    * (Delete) - user can delete application
+
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
