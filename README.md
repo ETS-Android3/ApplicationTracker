@@ -140,4 +140,97 @@ Application Tracker helps the user maintain a list of job applications and the s
     * (Delete) - user can delete application
 
 - [Create basic snippets for each Parse network request]
+- Login Screen - user login: (GET)
+```
+ParseUser.logInInBackground("username", "password", new LogInCallback() {
+  public void done(ParseUser user, ParseException e) {
+    if (user != null) {
+      // take user to application page
+    } else {
+      // output the exception message as a long toast message
+    }
+  }
+});
+```
+- Login Screen - user register: (POST)
+
+```
+ParseUser user = new ParseUser();
+user.setUsername("username");
+user.setPassword("password");
+user.put("name", /*insert name*/);
+user.signUpInBackground(new SignUpCallback() {
+  public void done(ParseException e) {
+    if (e == null) {
+      // take user to the application list view
+    } else {
+      // output the parse exception as a long toast message
+    }
+  }
+});
+```
+- Application List (Stream): (Read/GET): applications already created by user
+```
+// Define the class we would like to query
+ParseQuery<ParseObject> applicationQuery = ParseQuery.getQuery("Application");
+// Define our query conditions
+query.whereEqualTo("owner", ParseUser.getCurrentUser());
+// Execute the find asynchronously
+query.findInBackground(new FindCallback<ParseObject>() {
+    public void done(List<ParseObject> applicationList, ParseException e) {
+        if (e == null) {
+            // Access the array of results here
+            String firstItemId = applicationList.get(0).getObjectId();
+            //display the item
+        } else {
+            //log or toast the error
+        }
+    }
+});
+
+```
+
+- Application List: (Delete) Delete existing applications
+
+```
+    //user clicks on application card - we can take the application object in the card and delete it
+    application.deleteInBackground();
+```
+
+- Add Application (Create): (Create/POST) - create a new application
+
+```
+//have the application class inherit from parse object and use that instead
+ParseObject application = new ParseObject("Application");
+application.put("companyName", /*insert company name*/);
+application.put("dateApplied", /*insert date*/);
+application.put("status", /*insert status*/);
+application.put("jobTitle", /*insert job title*/);
+application.setOwner(ParseUser.getCurrentUser());
+application.saveInBackground();
+```
+
+- Edit Application (Detail?): (Update/PUT) - user can change application details and add notes
+
+```
+ParseQuery<ParseObject> applicationQuery = ParseQuery.getQuery("Application");
+
+// Retrieve the object by id
+query.getInBackground(/*applicationID*/, new GetCallback<ParseObject>() {
+  public void done(ParseObject application, ParseException e) {
+    if (e == null) {
+      application.put("status", /*insert status*/);
+      application.put("notes", /*insert notes*/);
+      application.saveInBackground();
+    }
+  }
+});
+```
+- Edit Application:  (Delete) - user can delete application
+```
+    application.deleteInBackground();
+```
+
+
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+- maybe using oauth?
