@@ -18,7 +18,7 @@ Application Tracker helps the user maintain a list of job applications and the s
 ### App Evaluation
 [Evaluation of your app across the following attributes]
 - **Category:** Productivity
-- **Mobile:**
+- **Mobile:** As a mobile app, it's easily accessible anytime.
 - **Story:** I believe the app could be very useful. The benefit of having access to all your applications on your phone can help users stay in track with their applications.
 - **Market:** Large market opportunity because software engineers can use this app repeatedly to track applications when they are searching for a job
 - **Habit:** App is not habit-forming or addictive. An average user will primarily create, but they can also consume.
@@ -90,7 +90,7 @@ Application Tracker helps the user maintain a list of job applications and the s
 
 ## Wireframes
 [Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="Wireframe.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
@@ -99,8 +99,138 @@ Application Tracker helps the user maintain a list of job applications and the s
 ## Schema
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### Application
+
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| Company Name | String | name of company |
+| Date Applied | DateTime | date of application |
+| Status     | int     | status of application     |
+| Job Title     | String     | title of job     |
+| Notes     | String     | any notes the user wants to add   |
+| UserID     | String     | identifies user who made application (for networking requests) |
+
+
+#### User
+
+| Property | Type | Description |
+| -------- | -------- | -------- |
+| UserID | String | primary key |
+| Email | String | user email |
+| Password | String | user password |
+| Name | String | name of user |
+
+
 ### Networking
-- [Add list of network requests by screen ]
+#### Network Request Lists:
+
+* Login Screen: 
+    * (Read/GET) Get user profile information if logging in
+    * (Create/POST) if user is registering
+
+* Application List (Stream): 
+    * (Read/GET): applications already created by user
+    * (Delete) Delete existing applications
+
+* Add Application (Create): 
+    * (Create/POST) - create a new application
+
+* Edit Application (Detail?): 
+    * (Update/PUT) - user can change application details and add notes
+    * (Delete) - user can delete application
+
 - [Create basic snippets for each Parse network request]
+- Login Screen - user login: (GET)
+```
+ParseUser.logInInBackground("username", "password", new LogInCallback() {
+  public void done(ParseUser user, ParseException e) {
+    if (user != null) {
+      // take user to application page
+    } else {
+      // output the exception message as a long toast message
+    }
+  }
+});
+```
+- Login Screen - user register: (POST)
+
+```
+ParseUser user = new ParseUser();
+user.setUsername("username");
+user.setPassword("password");
+user.put("name", /*insert name*/);
+user.signUpInBackground(new SignUpCallback() {
+  public void done(ParseException e) {
+    if (e == null) {
+      // take user to the application list view
+    } else {
+      // output the parse exception as a long toast message
+    }
+  }
+});
+```
+- Application List (Stream): (Read/GET): applications already created by user
+```
+// Define the class we would like to query
+ParseQuery<ParseObject> applicationQuery = ParseQuery.getQuery("Application");
+// Define our query conditions
+query.whereEqualTo("owner", ParseUser.getCurrentUser());
+// Execute the find asynchronously
+query.findInBackground(new FindCallback<ParseObject>() {
+    public void done(List<ParseObject> applicationList, ParseException e) {
+        if (e == null) {
+            // Access the array of results here
+            String firstItemId = applicationList.get(0).getObjectId();
+            //display the item
+        } else {
+            //log or toast the error
+        }
+    }
+});
+
+```
+
+- Application List: (Delete) Delete existing applications
+
+```
+    //user clicks on application card - we can take the application object in the card and delete it
+    application.deleteInBackground();
+```
+
+- Add Application (Create): (Create/POST) - create a new application
+
+```
+//have the application class inherit from parse object and use that instead
+ParseObject application = new ParseObject("Application");
+application.put("companyName", /*insert company name*/);
+application.put("dateApplied", /*insert date*/);
+application.put("status", /*insert status*/);
+application.put("jobTitle", /*insert job title*/);
+application.setOwner(ParseUser.getCurrentUser());
+application.saveInBackground();
+```
+
+- Edit Application (Detail?): (Update/PUT) - user can change application details and add notes
+
+```
+ParseQuery<ParseObject> applicationQuery = ParseQuery.getQuery("Application");
+
+// Retrieve the object by id
+query.getInBackground(/*applicationID*/, new GetCallback<ParseObject>() {
+  public void done(ParseObject application, ParseException e) {
+    if (e == null) {
+      application.put("status", /*insert status*/);
+      application.put("notes", /*insert notes*/);
+      application.saveInBackground();
+    }
+  }
+});
+```
+- Edit Application:  (Delete) - user can delete application
+```
+    application.deleteInBackground();
+```
+
+
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+- maybe using oauth?
