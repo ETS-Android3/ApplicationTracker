@@ -44,11 +44,16 @@ public class MainActivity extends AppCompatActivity {
         rvApplications.setAdapter(adapter);
         rvApplications.setLayoutManager(layoutManager);
 
+
+
         applications.add(new Application("SWE", "HP", testDate, 1));
         applications.add(new Application("SWER", "HPE", testDate, 2));
         applications.add(new Application("SWERT", "HPF", testDate, 3));
         applications.add(new Application("SWEERE", "HPG", testDate, 4));
         adapter.notifyDataSetChanged();
+
+//        Intent i = new Intent(this, DetailActivity.class);
+//        startActivity(i);
 
     }
 
