@@ -25,9 +25,8 @@ Application Tracker helps the user maintain a list of job applications and the s
 
 **Required Must-have Stories**
 
-[x] User can login/signup to Parse account
-[x] User can see dashboard of all applications
-        [x] Includes date applied, company name, and status of application (accepted, interviewed, rejected)
+- [x] User can login/signup to Parse account
+- [x] User can see dashboard of all applications (includes date applied, company name, and status of application (accepted, interviewed, rejected))
 * User can add new application to dashboard
 * User can edit or delete application entry
 
