@@ -46,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        applications.add(new Application("SWE", "HP", testDate, 1));
-        applications.add(new Application("SWER", "HPE", testDate, 2));
-        applications.add(new Application("SWERT", "HPF", testDate, 3));
-        applications.add(new Application("SWEERE", "HPG", testDate, 4));
+        applications.add(new Application("SWE", "HP", testDate, 1, "banana"));
+        applications.add(new Application("SWER", "HPE", testDate, 2, ""));
+        applications.add(new Application("SWERT", "HPF", testDate, 3, "apple"));
+        applications.add(new Application("SWEERE", "HPG", testDate, 4, "meta"));
         adapter.notifyDataSetChanged();
 
 //        Intent i = new Intent(this, DetailActivity.class);

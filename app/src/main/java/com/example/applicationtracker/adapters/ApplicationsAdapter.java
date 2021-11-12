@@ -98,7 +98,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
             if (position != RecyclerView.NO_POSITION) {
                 Application app = applications.get(position);
                 Intent i = new Intent(context, DetailActivity.class);
-//                i.putExtra("application", Parcels.wrap(app));
+                i.putExtra(Application.class.getSimpleName(), Parcels.wrap(app));
                 context.startActivity(i);
                 Toast.makeText(context, "ERBUERUEHRIE", Toast.LENGTH_SHORT).show();
             }
