@@ -40,13 +40,15 @@ public class Application extends ParseObject {
         put(KEY_JOB_TITLE, jobTitle);
     }
 
-    public int getNotes(){
-        return getInt(KEY_NOTES);
+    public int getStatus(){ return getInt(KEY_STATUS);}
+
+    public void setStatus(int status){
+        put(KEY_STATUS, status);
     }
 
-    public void setNotes(int notes){
-        put(KEY_NOTES, notes);
-    }
+    public String getNotes(){return getString(KEY_NOTES);}
+
+    public void setString(String notes){put(KEY_NOTES, notes);}
 
     public ParseUser getUser(){
         return getParseUser(KEY_USER);
