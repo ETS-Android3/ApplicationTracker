@@ -10,6 +10,12 @@
 ### Description
 Application Tracker helps the user maintain a list of job applications and the status of the application. Users can add new applications, edit its details, and delete old applications. Users will have a list of all the applications with company name, job position, and status of application.
 
+## GIF Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='application_walkthrough.gif' title='GIF Walkthrough' width='' alt='GIF Walkthrough' />
+
 ### App Evaluation
 [Evaluation of your app across the following attributes]
 - **Category:** Productivity
