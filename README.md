@@ -1,15 +1,21 @@
-Original App Design Project - README Template.md
----
 Original App Design Project - README Template
 ===
 
 # Application Tracker
 
 ## Table of Contents
-1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+1. [User Stories](#User-Stories)
+2. [Overview](#Overview)
+3. [Product Spec](#Product-Spec)
+4. [Wireframes](#Wireframes)
+5. [Schema](#Schema)
+
+## User Stories
+
+- [x] User can login and logout
+- [x] User can view a list of applications
+- [ ] User can edit application
+- [ ] User can add application
 
 ## Overview
 ### Description
