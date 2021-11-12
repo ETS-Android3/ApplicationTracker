@@ -1,21 +1,10 @@
-Original App Design Project - README Template
-===
-
 # Application Tracker
 
 ## Table of Contents
-1. [User Stories](#User-Stories)
-2. [Overview](#Overview)
-3. [Product Spec](#Product-Spec)
-4. [Wireframes](#Wireframes)
-5. [Schema](#Schema)
-
-## User Stories
-
-- [x] User can login and logout
-- [x] User can view a list of applications
-- [ ] User can edit application
-- [ ] User can add application
+1. [Overview](#Overview)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
 
 ## Overview
 ### Description
@@ -36,9 +25,9 @@ Application Tracker helps the user maintain a list of job applications and the s
 
 **Required Must-have Stories**
 
-* User can login/signup to Parse account
-* User can see dashboard of all applications
-        * Includes date applied, company name, and status of application (accepted, interviewed, rejected)
+[x] User can login/signup to Parse account
+[x] User can see dashboard of all applications
+        [x] Includes date applied, company name, and status of application (accepted, interviewed, rejected)
 * User can add new application to dashboard
 * User can edit or delete application entry
 
