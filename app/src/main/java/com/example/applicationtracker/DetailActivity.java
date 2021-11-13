@@ -2,6 +2,8 @@ package com.example.applicationtracker;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +25,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView tvNotes;
     TextView tvJobTitle;
     Application app;
-
+    Button btnEditActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +39,23 @@ public class DetailActivity extends AppCompatActivity {
         tvStatus = findViewById(R.id.status);
         tvNotes = findViewById(R.id.tvNotes);
         tvJobTitle = findViewById(R.id.jobTitle);
+        btnEditActivity = findViewById(R.id.btnEditActivity);
+
+        btnEditActivity.setOnClickListener(view -> {
+            Log.i("DetailActivity", "clicked edit button");
+            goEditActivity();
+        });
+
 
         tvCompanyName.setText(app.getCompanyName());
         tvDateApplied.setText(app.getDateApplied().toString());
-//        tvStatus.setT
         tvNotes.setText(app.getNotes());
         tvJobTitle.setText(app.getJobTitle());
+    }
+
+    private void goEditActivity() {
+        Log.i("DetailActivity", "goEditActivity: ");
+        Toast.makeText(this, app.getCompanyName(), Toast.LENGTH_LONG).show();
     }
 
 }
