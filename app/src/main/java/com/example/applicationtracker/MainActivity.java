@@ -1,12 +1,10 @@
 package com.example.applicationtracker;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,12 +13,7 @@ import android.view.MenuItem;
 import com.example.applicationtracker.adapters.ApplicationsAdapter;
 import com.example.applicationtracker.models.Application;
 
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -44,16 +37,11 @@ public class MainActivity extends AppCompatActivity {
         rvApplications.setAdapter(adapter);
         rvApplications.setLayoutManager(layoutManager);
 
-
-
-        applications.add(new Application("SWE", "HP", testDate, 1, "banana"));
-        applications.add(new Application("SWER", "HPE", testDate, 2, ""));
-        applications.add(new Application("SWERT", "HPF", testDate, 3, "apple"));
-        applications.add(new Application("SWEERE", "HPG", testDate, 4, "meta"));
+        //applications.add(new Application("SWE", "HP", testDate, 1));
+        //applications.add(new Application("SWER", "HPE", testDate, 2));
+        //applications.add(new Application("SWERT", "HPF", testDate, 3));
+        //applications.add(new Application("SWEERE", "HPG", testDate, 4));
         adapter.notifyDataSetChanged();
-
-//        Intent i = new Intent(this, DetailActivity.class);
-//        startActivity(i);
 
     }
 
@@ -68,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.logout){
             goLogoutActivity();
         }
+        if(item.getItemId() == R.id.add){
+            goAddActivity();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -75,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, LogoutActivity.class);
         startActivity(i);
         finish();
+
+    }
+    private void goAddActivity() {
+        Intent i = new Intent(this, AddAppActivity.class);
+        startActivity(i);
+        //finish();
 
     }
 }

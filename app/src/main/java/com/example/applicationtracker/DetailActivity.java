@@ -47,7 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         });
 
 
-        tvCompanyName.setText(app.getCompanyName());
+        tvCompanyName.setText(app.getCompName());
         tvDateApplied.setText(app.getDateApplied().toString());
         tvNotes.setText(app.getNotes());
         tvJobTitle.setText(app.getJobTitle());
@@ -55,7 +55,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private void goEditActivity() {
         Log.i("DetailActivity", "goEditActivity: ");
-        Toast.makeText(this, app.getCompanyName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, app.getCompName(), Toast.LENGTH_LONG).show();
     }
 
 }
