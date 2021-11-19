@@ -1,18 +1,24 @@
 package com.example.applicationtracker.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Parcel;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.applicationtracker.DetailActivity;
 import com.example.applicationtracker.R;
 import com.example.applicationtracker.models.Application;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -48,7 +54,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
         return applications.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tvCompanyName;
         TextView tvJobTitle;
@@ -62,6 +68,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
             tvJobTitle = itemView.findViewById(R.id.jobTitle);
             tvDateApplied = itemView.findViewById(R.id.dateApplied);
             tvStatus = itemView.findViewById(R.id.status);
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Application application) {
@@ -84,5 +91,20 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
             }
 
         }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                Application app = applications.get(position);
+                Intent i = new Intent(context, DetailActivity.class);
+                i.putExtra(Application.class.getSimpleName(), Parcels.wrap(app));
+                context.startActivity(i);
+                Toast.makeText(context, "ERBUERUEHRIE", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+
     }
 }
