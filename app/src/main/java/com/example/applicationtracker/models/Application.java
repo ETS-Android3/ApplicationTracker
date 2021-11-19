@@ -24,7 +24,7 @@ public class Application extends ParseObject {
         put(KEY_COMPANY_NAME, compName);
     }
 
-    public Date getDateApplied(){
+    public Date getDateApplied() {
         return getDate(KEY_DATE_APPLIED);
     }
 

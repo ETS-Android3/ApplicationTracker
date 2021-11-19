@@ -7,11 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.applicationtracker.adapters.ApplicationsAdapter;
 import com.example.applicationtracker.models.Application;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,19 +34,33 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         rvApplications = findViewById(R.id.rvApplications);
         applications = new ArrayList<>();
+
         adapter = new ApplicationsAdapter(applications, this);
         layoutManager = new LinearLayoutManager(this);
-        Date testDate =  new Date();
-        testDate.setDate(50);
+
         rvApplications.setAdapter(adapter);
         rvApplications.setLayoutManager(layoutManager);
 
-        //applications.add(new Application("SWE", "HP", testDate, 1));
-        //applications.add(new Application("SWER", "HPE", testDate, 2));
-        //applications.add(new Application("SWERT", "HPF", testDate, 3));
-        //applications.add(new Application("SWEERE", "HPG", testDate, 4));
-        adapter.notifyDataSetChanged();
+        queryPosts();
 
+    }
+
+    private void queryPosts() {
+        ParseQuery<Application> query = ParseQuery.getQuery(Application.class);
+        query.whereEqualTo(Application.KEY_USER, ParseUser.getCurrentUser());
+        Log.i("MainActivity", "queryPosts: starting query");
+        query.findInBackground((parseApplications, e) -> {
+            if(e != null) {
+                Log.e("MainActivity", "Issue with getting applications", e);
+                Toast.makeText(MainActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                return;
+            }
+            for(Application application : parseApplications) {
+                Toast.makeText(MainActivity.this, application.getCompName(), Toast.LENGTH_LONG).show();
+            }
+            applications.addAll(parseApplications);
+            adapter.notifyDataSetChanged();
+        });
     }
 
     @Override

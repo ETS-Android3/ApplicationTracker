@@ -76,6 +76,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
             tvCompanyName.setText(application.getCompName());
             tvJobTitle.setText(application.getJobTitle());
             tvDateApplied.setText(application.getDateApplied().toString());
+
             // 1 - Accepted
             // 2 - Interviewing
             // 3 - Rejected
