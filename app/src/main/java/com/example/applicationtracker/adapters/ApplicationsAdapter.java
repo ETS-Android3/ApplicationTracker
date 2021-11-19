@@ -66,7 +66,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
 
         public void bind(Application application) {
             Log.d(TAG, "bind: ");
-            tvCompanyName.setText(application.getCompanyName());
+            tvCompanyName.setText(application.getCompName());
             tvJobTitle.setText(application.getJobTitle());
             tvDateApplied.setText(application.getDateApplied().toString());
             // 1 - Accepted

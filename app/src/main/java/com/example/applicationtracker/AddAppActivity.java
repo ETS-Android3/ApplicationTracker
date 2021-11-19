@@ -7,10 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.applicationtracker.models.Application;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;

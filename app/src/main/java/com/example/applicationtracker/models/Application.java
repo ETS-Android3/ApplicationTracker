@@ -1,52 +1,60 @@
 package com.example.applicationtracker.models;
 
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+
 import java.util.Date;
 
-public class Application {
-    String jobTitle;
-    String companyName;
-    Date dateApplied;
-    int status;
+@ParseClassName("Application")
+public class Application extends ParseObject {
 
-    public Application(String jobTitle, String companyName, Date dateApplied, int status) {
-        this.jobTitle = jobTitle;
-        this.companyName = companyName;
-        this.dateApplied = dateApplied;
-        this.status = status;
+    public static final String KEY_COMPANY_NAME = "compName";
+    public static final String KEY_DATE_APPLIED = "dateApplied";
+    public static final String KEY_JOB_TITLE = "jobTitle";
+    public static final String KEY_NOTES = "notes";
+    public static final String KEY_STATUS = "Status";
+    public static final String KEY_USER = "user";
+
+    public String getCompName(){
+        return getString(KEY_COMPANY_NAME);
     }
 
-    public int getStatus() {
-        return status;
+    public void setCompName(String compName){
+        put(KEY_COMPANY_NAME, compName);
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public Date getDateApplied(){
+        return getDate(KEY_DATE_APPLIED);
     }
 
-
-
-    public String getJobTitle() {
-        return jobTitle;
+    public void setDateApplied(Date dateApplied){
+        put(KEY_DATE_APPLIED, dateApplied);
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    public String getJobTitle(){
+        return getString(KEY_JOB_TITLE);
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public void setJobTitle(String jobTitle){
+        put(KEY_JOB_TITLE, jobTitle);
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public int getStatus(){ return getInt(KEY_STATUS);}
+
+    public void setStatus(int status){
+        put(KEY_STATUS, status);
     }
 
-    public Date getDateApplied() {
-        return dateApplied;
+    public String getNotes(){return getString(KEY_NOTES);}
+
+    public void setNotes(String notes){put(KEY_NOTES, notes);}
+
+    public ParseUser getUser(){
+        return getParseUser(KEY_USER);
     }
 
-    public void setDateApplied(Date dateApplied) {
-        this.dateApplied = dateApplied;
+    public void setUser (ParseUser user){
+        put(KEY_USER, user);
     }
 }
-

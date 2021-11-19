@@ -10,7 +10,7 @@ public class ParseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ParseObject.registerSubclass(com.example.applicationtracker.Application.class);
+        ParseObject.registerSubclass(com.example.applicationtracker.models.Application.class);
 
         // Register your parse models
         //ParseObject.registerSubclass(Application.class);
