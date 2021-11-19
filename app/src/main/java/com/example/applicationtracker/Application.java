@@ -48,7 +48,7 @@ public class Application extends ParseObject {
 
     public String getNotes(){return getString(KEY_NOTES);}
 
-    public void setString(String notes){put(KEY_NOTES, notes);}
+    public void setNotes(String notes){put(KEY_NOTES, notes);}
 
     public ParseUser getUser(){
         return getParseUser(KEY_USER);

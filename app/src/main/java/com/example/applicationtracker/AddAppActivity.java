@@ -50,23 +50,27 @@ public class AddAppActivity extends AppCompatActivity {
                 String JobTitle = etJobTitle.getText().toString();
                 String sStatus = etStatus.getText().toString();
                 int status = Integer.parseInt(sStatus);
+                Date apDate = new Date(evDate.getDate());
+                String Notes = etNotes.getText().toString();
                 if(CompName.isEmpty() || JobTitle.isEmpty()){
                     Toast.makeText(AddAppActivity.this, "Company Name and Job Title cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                saveApplication(CompName, JobTitle, currentUser, status);
+                saveApplication(CompName, JobTitle, currentUser, status, apDate, Notes);
             }
         });
 
     }
 
-    private void saveApplication(String compName, String jobTitle, ParseUser currentUser, int status) {
+    private void saveApplication(String compName, String jobTitle, ParseUser currentUser, int status, Date apDate, String notes) {
         Application application = new Application();
         application.setCompName(compName);
         application.setJobTitle(jobTitle);
         application.setUser(currentUser);
         application.setStatus(status);
+        application.setDateApplied(apDate);
+        application.setNotes(notes);
         application.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -78,6 +82,7 @@ public class AddAppActivity extends AppCompatActivity {
                 etCompName.setText("");
                 etJobTitle.setText("");
                 etStatus.setText("");
+                etNotes.setText("");
             }
         });
     }
