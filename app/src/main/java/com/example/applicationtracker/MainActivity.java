@@ -63,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.logout){
             goLogoutActivity();
         }
+        if(item.getItemId() == R.id.add){
+            goAddActivity();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -70,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, LogoutActivity.class);
         startActivity(i);
         finish();
+
+    }
+    private void goAddActivity() {
+        Intent i = new Intent(this, AddAppActivity.class);
+        startActivity(i);
+        //finish();
 
     }
 }
