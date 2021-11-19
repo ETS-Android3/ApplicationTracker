@@ -1,19 +1,20 @@
-Original App Design Project - README Template.md
----
-Original App Design Project - README Template
-===
-
 # Application Tracker
 
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
-2. [Schema](#Schema)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
 
 ## Overview
 ### Description
 Application Tracker helps the user maintain a list of job applications and the status of the application. Users can add new applications, edit its details, and delete old applications. Users will have a list of all the applications with company name, job position, and status of application.
+
+## GIF Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='application_walkthrough.gif' title='GIF Walkthrough' width='' alt='GIF Walkthrough' />
 
 ### App Evaluation
 [Evaluation of your app across the following attributes]
@@ -30,9 +31,8 @@ Application Tracker helps the user maintain a list of job applications and the s
 
 **Required Must-have Stories**
 
-* User can login/signup to Parse account
-* User can see dashboard of all applications
-        * Includes date applied, company name, and status of application (accepted, interviewed, rejected)
+- [x] User can login/signup to Parse account
+- [x] User can see dashboard of all applications (includes date applied, company name, and status of application (accepted, interviewed, rejected))
 * User can add new application to dashboard
 * User can edit or delete application entry
 
