@@ -46,6 +46,14 @@
         android:layout_above="@id/btnEditActivity"/>
 
     <Button
+        android:id="@+id/btnDeleteApp"
+        android:text="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"/>
+
+    <Button
         android:id="@+id/btnEditActivity"
         android:text="Edit"
         android:layout_width="wrap_content"
