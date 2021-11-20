@@ -37,7 +37,7 @@ Here's a walkthrough of implemented user stories:
 - [x] User can see dashboard of all applications (includes date applied, company name, and status of application (accepted, interviewed, rejected))
 - [x] User can add new application to dashboard & database
 - [x] User can edit application entry
-- [ ] User can delete application entry
+- [x] User can delete application entry
 
 **Optional Nice-to-have Stories**
 
