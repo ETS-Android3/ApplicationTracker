@@ -35,13 +35,14 @@ Here's a walkthrough of implemented user stories:
 
 - [x] User can login/signup to Parse account
 - [x] User can see dashboard of all applications (includes date applied, company name, and status of application (accepted, interviewed, rejected))
-* User can add new application to dashboard
-* User can edit or delete application entry
+- [x] User can add new application to dashboard & database
+- [x] User can edit application entry
+- [ ] User can delete application entry
 
 **Optional Nice-to-have Stories**
 
-* User can navigate to detail view to see more information
-    * User can add notes into notebox for each application
+- [x] User can navigate to detail view to see more information
+    - [x] User can add notes into notebox for each application
         * [Stretch-Stretch] User can add "update notes" to each application, with associated date/timestamp
 * App persists application data locally for offline access
 * User can filter applications by status
