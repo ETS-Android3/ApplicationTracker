@@ -1,5 +1,6 @@
 package com.example.applicationtracker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -17,7 +18,9 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class AddAppActivity extends AppCompatActivity {
@@ -26,9 +29,12 @@ public class AddAppActivity extends AppCompatActivity {
     private EditText etCompName;
     private EditText etJobTitle;
     private EditText etStatus;
-    private CalendarView evDate;
+    private CalendarView cvDate;
     private EditText etNotes;
     private Button btnSubmit;
+    long appDate;
+
+    Calendar calendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +44,21 @@ public class AddAppActivity extends AppCompatActivity {
         etCompName = findViewById(R.id.etCompName);
         etJobTitle = findViewById(R.id.etJobTitle);
         etStatus = findViewById(R.id.etStatus);
-        evDate = findViewById(R.id.cvDate);
+        cvDate = findViewById(R.id.cvDate);
         etNotes = findViewById(R.id.etNotes);
         btnSubmit = findViewById(R.id.btnSubmit);
+
+
+
+
+        cvDate.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
+                Calendar c = Calendar.getInstance();
+                c.set(i, i1, i2);
+                appDate = c.getTimeInMillis();
+            }
+        });
 
         //queryApplication();
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -50,26 +68,29 @@ public class AddAppActivity extends AppCompatActivity {
                 String JobTitle = etJobTitle.getText().toString();
                 String sStatus = etStatus.getText().toString();
                 int status = Integer.parseInt(sStatus);
-                Date apDate = new Date(evDate.getDate());
                 String Notes = etNotes.getText().toString();
+                Date date = new Date(appDate);
                 if(CompName.isEmpty() || JobTitle.isEmpty()){
                     Toast.makeText(AddAppActivity.this, "Company Name and Job Title cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+
+
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                saveApplication(CompName, JobTitle, currentUser, status, apDate, Notes);
+                saveApplication(CompName, JobTitle, currentUser, status, Notes, date);
             }
         });
 
     }
 
-    private void saveApplication(String compName, String jobTitle, ParseUser currentUser, int status, Date apDate, String notes) {
+    private void saveApplication(String compName, String jobTitle, ParseUser currentUser, int status, String notes, Date date) {
         Application application = new Application();
         application.setCompName(compName);
         application.setJobTitle(jobTitle);
         application.setUser(currentUser);
         application.setStatus(status);
-        application.setDateApplied(apDate);
+;       application.setDateApplied(date);
         application.setNotes(notes);
         application.saveInBackground(new SaveCallback() {
             @Override

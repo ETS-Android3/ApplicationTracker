@@ -15,6 +15,7 @@ public class Application extends ParseObject {
     public static final String KEY_NOTES = "notes";
     public static final String KEY_STATUS = "Status";
     public static final String KEY_USER = "user";
+    public static final String KEY_OBJECT_ID = "objectId";
 
     public String getCompName(){
         return getString(KEY_COMPANY_NAME);
@@ -57,4 +58,6 @@ public class Application extends ParseObject {
     public void setUser (ParseUser user){
         put(KEY_USER, user);
     }
+
+    public String getObjectId(){return getString(KEY_OBJECT_ID);}
 }
