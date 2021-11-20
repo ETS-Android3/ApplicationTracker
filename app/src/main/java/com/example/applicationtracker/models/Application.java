@@ -4,9 +4,12 @@ import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import org.parceler.Parcel;
+
 import java.util.Date;
 
 @ParseClassName("Application")
+@Parcel
 public class Application extends ParseObject {
 
     public static final String KEY_COMPANY_NAME = "compName";
@@ -16,6 +19,8 @@ public class Application extends ParseObject {
     public static final String KEY_STATUS = "Status";
     public static final String KEY_USER = "user";
     public static final String KEY_OBJECT_ID = "objectId";
+
+    public Application() {}
 
     public String getCompName(){
         return getString(KEY_COMPANY_NAME);

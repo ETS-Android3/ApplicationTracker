@@ -98,6 +98,7 @@ public class AddAppActivity extends AppCompatActivity {
                 if (e != null){
                     Log.e(TAG, "Error while saving", e);
                     Toast.makeText(AddAppActivity.this, "Error while saving!", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 Log.i(TAG, "post save was successful!!");
                 etCompName.setText("");
