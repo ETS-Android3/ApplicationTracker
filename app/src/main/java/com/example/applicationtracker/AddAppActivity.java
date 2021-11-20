@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.example.applicationtracker.models.Application;
@@ -22,7 +23,12 @@ public class AddAppActivity extends AppCompatActivity {
     public static final String TAG = "AddAppActivity";
     private EditText etCompName;
     private EditText etJobTitle;
-    private EditText etStatus;
+
+    private RadioButton rbtnInterviewing;
+    private RadioButton rbtnOffer;
+    private RadioButton rbtnWaiting;
+    private RadioButton rbtnRejected;
+
     private CalendarView cvDate;
     private EditText etNotes;
     private Button btnSubmit;
@@ -36,13 +42,16 @@ public class AddAppActivity extends AppCompatActivity {
 
         etCompName = findViewById(R.id.etCompName);
         etJobTitle = findViewById(R.id.etJobTitle);
-        etStatus = findViewById(R.id.etStatus);
+
+        rbtnInterviewing = findViewById(R.id.rbtnInterviewing);
+        rbtnOffer = findViewById(R.id.rbtnOffer);
+        rbtnRejected = findViewById(R.id.rbtnRejected);
+        rbtnWaiting = findViewById(R.id.rbtnWaiting);
+        rbtnWaiting.setChecked(true);
+
         cvDate = findViewById(R.id.cvDate);
         etNotes = findViewById(R.id.etNotes);
         btnSubmit = findViewById(R.id.btnSubmit);
-
-
-
 
         cvDate.setOnDateChangeListener((calendarView, i, i1, i2) -> {
             Calendar c = Calendar.getInstance();
@@ -50,12 +59,21 @@ public class AddAppActivity extends AppCompatActivity {
             appDate = c.getTimeInMillis();
         });
 
-        //queryApplication();
         btnSubmit.setOnClickListener(view -> {
             String CompName = etCompName.getText().toString();
             String JobTitle = etJobTitle.getText().toString();
-            String sStatus = etStatus.getText().toString();
-            int status = Integer.parseInt(sStatus);
+
+            int status;
+            if(rbtnInterviewing.isChecked()){
+                status = 2;
+            } else if (rbtnOffer.isChecked()) {
+                status = 1;
+            } else if (rbtnRejected.isChecked()) {
+                status = 3;
+            } else {
+                status = 4;
+            }
+
             String Notes = etNotes.getText().toString();
             Date date = new Date(appDate);
             if(CompName.isEmpty() || JobTitle.isEmpty()){
@@ -63,12 +81,9 @@ public class AddAppActivity extends AppCompatActivity {
                 return;
             }
 
-
-
             ParseUser currentUser = ParseUser.getCurrentUser();
             saveApplication(CompName, JobTitle, currentUser, status, Notes, date);
         });
-
     }
 
     private void saveApplication(String compName, String jobTitle, ParseUser currentUser, int status, String notes, Date date) {
@@ -88,8 +103,6 @@ public class AddAppActivity extends AppCompatActivity {
             Log.i(TAG, "post save was successful!!");
             Intent i = new Intent(AddAppActivity.this, MainActivity.class);
             startActivity(i);
-
         });
     }
-
 }

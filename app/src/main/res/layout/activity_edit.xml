@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".EditActivity">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,9 +18,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:ems="10"
-                android:hint="Company Name"
+                android:hint="@string/company_name"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName|text"
                 android:minHeight="48dp"
-                android:padding="8dp" />
+                android:padding="8dp"
+                tools:ignore="TextContrastCheck" />
 
             <EditText
                 android:id="@+id/etEditJobTitle"
@@ -32,19 +31,48 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:ems="10"
-                android:hint="Job Title"
+                android:hint="@string/job_title"
+                android:importantForAutofill="no"
+                android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="8dp" />
 
-            <EditText
-                android:id="@+id/etEditStatus"
+            <RadioGroup
+                android:id="@+id/rgEditStatus"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:ems="10"
-                android:hint="Status"
-                android:minHeight="48dp"
-                android:padding="8dp" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvEditStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_status_for_position" />
+
+                <RadioButton
+                    android:id="@+id/rbtnEditWaiting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/waiting" />
+
+                <RadioButton
+                    android:id="@+id/rbtnEditInterviewing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/interviewing" />
+
+                <RadioButton
+                    android:id="@+id/rbtnEditOffer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/offer" />
+
+                <RadioButton
+                    android:id="@+id/rbtnEditRejected"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rejected" />
+
+            </RadioGroup>
 
             <EditText
                 android:id="@+id/etEditNotes"
@@ -52,7 +80,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:ems="10"
-                android:hint="Notes"
+                android:hint="@string/notes"
+                android:importantForAutofill="no"
+                android:inputType="text"
                 android:minHeight="48dp"
                 android:padding="8dp" />
 
@@ -65,9 +95,7 @@
                 android:id="@+id/btnEditSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Update" />
+                android:text="@string/update" />
 
         </LinearLayout>
-    </ScrollView>
-
-</LinearLayout>
+</ScrollView>

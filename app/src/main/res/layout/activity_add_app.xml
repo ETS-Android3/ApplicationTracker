@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".AddAppActivity">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,9 +18,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:ems="10"
-                android:hint="Company Name"
+                android:hint="@string/company_name"
+                android:inputType="text"
                 android:minHeight="48dp"
-                android:padding="8dp" />
+                android:padding="8dp"
+                tools:ignore="TextContrastCheck"
+                android:importantForAutofill="no" />
 
             <EditText
                 android:id="@+id/etJobTitle"
@@ -32,19 +31,48 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:ems="10"
-                android:hint="Job Title"
+                android:hint="@string/job_title"
+                android:inputType="text"
                 android:minHeight="48dp"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:importantForAutofill="no" />
 
-            <EditText
-                android:id="@+id/etStatus"
+            <RadioGroup
+                android:id="@+id/rgstatus"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:ems="10"
-                android:hint="Status"
-                android:minHeight="48dp"
-                android:padding="8dp" />
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_status_for_position" />
+
+                <RadioButton
+                    android:id="@+id/rbtnWaiting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/waiting" />
+
+                <RadioButton
+                    android:id="@+id/rbtnInterviewing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/interviewing" />
+
+                <RadioButton
+                    android:id="@+id/rbtnOffer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/offer" />
+
+                <RadioButton
+                    android:id="@+id/rbtnRejected"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rejected" />
+
+            </RadioGroup>
 
             <EditText
                 android:id="@+id/etNotes"
@@ -52,9 +80,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:ems="10"
-                android:hint="Notes"
+                android:hint="@string/notes"
+                android:inputType="textMultiLine"
                 android:minHeight="48dp"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:importantForAutofill="no" />
 
             <CalendarView
                 android:id="@+id/cvDate"
@@ -65,9 +95,7 @@
                 android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Submit" />
+                android:text="@string/submit" />
 
         </LinearLayout>
-    </ScrollView>
-
-</LinearLayout>
+</ScrollView>
