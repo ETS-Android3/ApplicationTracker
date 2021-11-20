@@ -1,5 +1,7 @@
 package com.example.applicationtracker;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +29,7 @@ public class DetailActivity extends AppCompatActivity {
     Application app;
     Button btnEditActivity;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +45,10 @@ public class DetailActivity extends AppCompatActivity {
         btnEditActivity = findViewById(R.id.btnEditActivity);
 
         btnEditActivity.setOnClickListener(view -> {
+            Intent i = new Intent(this, EditActivity.class);
+            i.putExtra(Application.class.getSimpleName(), Parcels.wrap(app));
+            startActivity(i);
             Log.i("DetailActivity", "clicked edit button");
-            goEditActivity();
         });
 
 
@@ -51,11 +56,6 @@ public class DetailActivity extends AppCompatActivity {
         tvDateApplied.setText(app.getDateApplied().toString());
         tvNotes.setText(app.getNotes());
         tvJobTitle.setText(app.getJobTitle());
-    }
-
-    private void goEditActivity() {
-        Log.i("DetailActivity", "goEditActivity: ");
-        Toast.makeText(this, app.getCompName(), Toast.LENGTH_LONG).show();
     }
 
 }
