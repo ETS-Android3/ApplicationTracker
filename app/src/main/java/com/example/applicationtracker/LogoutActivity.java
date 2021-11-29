@@ -2,7 +2,6 @@ package com.example.applicationtracker;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +16,9 @@ public class LogoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logout);
         btnLogout = findViewById(R.id.btnLogout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ParseUser.logOut();
-                ParseUser currentUser = ParseUser.getCurrentUser();
-                goLoginActivity();
-            }
+        btnLogout.setOnClickListener(view -> {
+            ParseUser.logOut();
+            goLoginActivity();
         });
     }
     private void goLoginActivity() {

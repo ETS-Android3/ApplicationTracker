@@ -5,13 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.parse.LogInCallback;
-import com.parse.ParseException;
 import com.parse.ParseUser;
 
 public class LoginActivity extends AppCompatActivity {
@@ -34,37 +31,26 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i(TAG, "onClick Login button");
-                String username = etUsername.getText().toString();
-                String password = etPassword.getText().toString();
-                loginUser(username, password);
-            }
+        btnLogin.setOnClickListener(view -> {
+            Log.i(TAG, "onClick Login button");
+            String username = etUsername.getText().toString();
+            String password = etPassword.getText().toString();
+            loginUser(username, password);
         });
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goSignupActivity();
-            }
-        });
+        btnRegister.setOnClickListener(view -> goSignupActivity());
 
     }
 
     private void loginUser(String username, String password) {
         Log.i(TAG, "Attempting to login user" + username);
-        ParseUser.logInInBackground(username, password, new LogInCallback() {
-            @Override
-            public void done(ParseUser user, ParseException e) {
-                if (e != null) {
-                    Log.e(TAG, "Issue with login", e);
-                    Toast.makeText(LoginActivity.this, "Issue with login!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                goMainActivity();
-                Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
+        ParseUser.logInInBackground(username, password, (user, e) -> {
+            if (e != null) {
+                Log.e(TAG, "Issue with login", e);
+                Toast.makeText(LoginActivity.this, "Issue with login!", Toast.LENGTH_SHORT).show();
+                return;
             }
+            goMainActivity();
+            Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
         });
     }
 
