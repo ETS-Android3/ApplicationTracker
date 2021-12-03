@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 return;
             }
-            for(Application application : parseApplications) {
-                Toast.makeText(MainActivity.this, application.getCompName(), Toast.LENGTH_LONG).show();
-            }
             applications.addAll(parseApplications);
             adapter.notifyDataSetChanged();
         });

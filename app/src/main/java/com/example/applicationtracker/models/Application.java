@@ -1,10 +1,10 @@
 package com.example.applicationtracker.models;
 
+import android.graphics.Color;
+
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
-
-import org.parceler.Parcel;
 
 import java.util.Date;
 
@@ -47,6 +47,18 @@ public class Application extends ParseObject {
 
     public void setStatus(int status){
         put(KEY_STATUS, status);
+    }
+
+    public int statusToColor(int status) {
+        if (status == 1) {
+            return Color.GREEN;
+        } else if (status == 2) {
+            return Color.YELLOW;
+        } else if (status == 3) {
+           return Color.RED;
+        } else {
+            return Color.GRAY;
+        }
     }
 
     public String getNotes(){return getString(KEY_NOTES);}

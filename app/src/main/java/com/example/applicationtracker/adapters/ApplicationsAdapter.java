@@ -81,16 +81,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
             // 2 - Interviewing
             // 3 - Rejected
             // 4 - No response
-            if (application.getStatus() == 1) {
-                tvStatus.setBackgroundColor(Color.GREEN);
-            } else if (application.getStatus() == 2) {
-                tvStatus.setBackgroundColor(Color.YELLOW);
-            } else if (application.getStatus() == 3) {
-                tvStatus.setBackgroundColor(Color.RED);
-            } else if (application.getStatus() == 4) {
-                tvStatus.setBackgroundColor(Color.GRAY);
-            }
-
+            tvStatus.setBackgroundColor(application.statusToColor(application.getStatus()));
         }
 
         @Override
@@ -101,11 +92,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
                 Intent i = new Intent(context, DetailActivity.class);
                 i.putExtra(Application.class.getSimpleName(), Parcels.wrap(app));
                 context.startActivity(i);
-                Toast.makeText(context, "ERBUERUEHRIE", Toast.LENGTH_SHORT).show();
             }
-
         }
-
-
     }
 }

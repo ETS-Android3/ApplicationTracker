@@ -62,5 +62,6 @@ public class DetailActivity extends AppCompatActivity {
         tvDateApplied.setText(app.getDateApplied().toString());
         tvNotes.setText(app.getNotes());
         tvJobTitle.setText(app.getJobTitle());
+        tvStatus.setBackgroundColor(app.statusToColor(app.getStatus()));
     }
 }
