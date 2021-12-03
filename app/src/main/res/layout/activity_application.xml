@@ -1,40 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="6dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginBottom="3dp"
+    android:background="#ECECEC">
 
     <TextView
         android:id="@+id/jobTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="309dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/companyName"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:text="jobTitle" />
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:text="jobTitle"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/companyName"
-        android:layout_width="wrap_content"
+        android:layout_width="308dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="companyName" />
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:text="companyName"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/dateApplied"
-        android:layout_width="wrap_content"
+        android:layout_width="309dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/companyName"
-        android:layout_marginTop="5dp"
-        android:text="dateApplied" />
+        android:layout_below="@+id/jobTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:text="dateApplied"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="35dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
+        android:layout_marginRight="4dp"
         android:background="@color/purple_700"
-        android:text="       "
-        android:layout_alignParentRight="true"/>
+        android:text="       " />
+
 </RelativeLayout>
