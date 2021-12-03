@@ -13,6 +13,7 @@ Application Tracker helps the user maintain a list of job applications and the s
 ## GIF Walkthrough
 
 Here's a walkthrough of implemented user stories:
+<img src='walkthrough4.gif' title='GIF Walkthrough' width='' alt='GIF Walkthrough' />
 
 <img src='walkthrough3.gif' title='GIF Walkthrough' width='' alt='GIF Walkthrough' />
 
