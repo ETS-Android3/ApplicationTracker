@@ -9,7 +9,6 @@ import org.parceler.Parcel;
 import java.util.Date;
 
 @ParseClassName("Application")
-@Parcel
 public class Application extends ParseObject {
 
     public static final String KEY_COMPANY_NAME = "compName";
@@ -19,7 +18,6 @@ public class Application extends ParseObject {
     public static final String KEY_STATUS = "Status";
     public static final String KEY_USER = "user";
 
-    public Application() {}
 
     public String getCompName(){
         return getString(KEY_COMPANY_NAME);
