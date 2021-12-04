@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,7 @@ public class DetailActivity extends AppCompatActivity {
 
     TextView tvCompanyName;
     TextView tvDateApplied;
-    TextView tvStatus;
+    ImageView ivStatus;
     TextView tvNotes;
     TextView tvJobTitle;
     Application app;
@@ -36,11 +37,12 @@ public class DetailActivity extends AppCompatActivity {
 
         tvCompanyName = findViewById(R.id.companyName);
         tvDateApplied = findViewById(R.id.dateApplied);
-        tvStatus = findViewById(R.id.status);
+
         tvNotes = findViewById(R.id.tvNotes);
         tvJobTitle = findViewById(R.id.jobTitle);
         btnEditActivity = findViewById(R.id.btnEditActivity);
         btnDeleteApp = findViewById(R.id.btnDeleteApp);
+        ivStatus = findViewById(R.id.status);
 
         btnEditActivity.setOnClickListener(view -> {
             Intent i = new Intent(this, EditActivity.class);
@@ -66,6 +68,6 @@ public class DetailActivity extends AppCompatActivity {
         tvDateApplied.setText(dateOnly.format(app.getDateApplied()));
         tvNotes.setText(app.getNotes());
         tvJobTitle.setText(app.getJobTitle());
-        tvStatus.setBackgroundColor(app.statusToColor(app.getStatus()));
+        ivStatus.setImageResource(app.statusToColor2(app.getStatus()));
     }
 }

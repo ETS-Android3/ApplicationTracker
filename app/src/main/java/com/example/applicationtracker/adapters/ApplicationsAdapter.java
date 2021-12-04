@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -58,7 +59,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
         TextView tvCompanyName;
         TextView tvJobTitle;
         TextView tvDateApplied;
-        TextView tvStatus;
+        ImageView ivStatus;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,7 +67,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
             tvCompanyName = itemView.findViewById(R.id.companyName);
             tvJobTitle = itemView.findViewById(R.id.jobTitle);
             tvDateApplied = itemView.findViewById(R.id.dateApplied);
-            tvStatus = itemView.findViewById(R.id.status);
+            ivStatus = itemView.findViewById(R.id.ivStatus);
             itemView.setOnClickListener(this);
         }
 
@@ -79,7 +80,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
             // 2 - Interviewing
             // 3 - Rejected
             // 4 - No response
-            tvStatus.setBackgroundColor(application.statusToColor(application.getStatus()));
+            ivStatus.setImageResource(application.statusToColor2(application.getStatus()));
         }
 
         @Override

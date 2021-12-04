@@ -2,6 +2,7 @@ package com.example.applicationtracker.models;
 
 import android.graphics.Color;
 
+import com.example.applicationtracker.R;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
@@ -49,15 +50,15 @@ public class Application extends ParseObject {
         put(KEY_STATUS, status);
     }
 
-    public int statusToColor(int status) {
+    public int statusToColor2(int status) {
         if (status == 1) {
-            return Color.GREEN;
+            return R.drawable.green_circle;
         } else if (status == 2) {
-            return Color.YELLOW;
+            return R.drawable.yellow_circle;
         } else if (status == 3) {
-           return Color.RED;
+            return R.drawable.red_circle;
         } else {
-            return Color.GRAY;
+            return R.drawable.gray_circle;
         }
     }
 
