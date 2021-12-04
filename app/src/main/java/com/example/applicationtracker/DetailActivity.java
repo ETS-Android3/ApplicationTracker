@@ -12,6 +12,9 @@ import com.example.applicationtracker.models.Application;
 
 import org.parceler.Parcels;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String TAG = "DetailActivity";
@@ -59,7 +62,8 @@ public class DetailActivity extends AppCompatActivity {
         }));
 
         tvCompanyName.setText(app.getCompName());
-        tvDateApplied.setText(app.getDateApplied().toString());
+        SimpleDateFormat dateOnly = new SimpleDateFormat("EEEE MMMM dd, yyyy", Locale.getDefault());
+        tvDateApplied.setText(dateOnly.format(app.getDateApplied()));
         tvNotes.setText(app.getNotes());
         tvJobTitle.setText(app.getJobTitle());
         tvStatus.setBackgroundColor(app.statusToColor(app.getStatus()));

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".SignupActivity">
 
@@ -14,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="username"/>
+        android:hint="username"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/etNewPassword"
@@ -23,13 +25,15 @@
         android:layout_weight="1"
         android:ems="10"
         android:hint="password"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
     <Button
         android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Signup"/>
+        android:text="Signup" />
 
 
 </LinearLayout>

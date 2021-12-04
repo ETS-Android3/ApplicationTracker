@@ -2,14 +2,11 @@ package com.example.applicationtracker.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Parcel;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +17,9 @@ import com.example.applicationtracker.models.Application;
 
 import org.parceler.Parcels;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapter.ViewHolder> {
 
@@ -75,8 +74,7 @@ public class ApplicationsAdapter extends RecyclerView.Adapter<ApplicationsAdapte
             Log.d(TAG, "bind: ");
             tvCompanyName.setText(application.getCompName());
             tvJobTitle.setText(application.getJobTitle());
-            tvDateApplied.setText(application.getDateApplied().toString());
-
+            tvDateApplied.setText(new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault()).format(application.getDateApplied()));
             // 1 - Accepted
             // 2 - Interviewing
             // 3 - Rejected
