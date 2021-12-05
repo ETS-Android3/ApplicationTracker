@@ -8,7 +8,7 @@
     android:layout_marginTop="3dp"
     android:layout_marginRight="6dp"
     android:layout_marginBottom="3dp"
-    android:background="#ECECEC"
+    android:background="@color/theme2Light"
     app:layout_constraintCircleRadius="@android:dimen/app_icon_size">
 
     <TextView
