@@ -23,6 +23,8 @@ public class LogoutActivity extends AppCompatActivity {
     }
     private void goLoginActivity() {
         Intent i = new Intent(this, LoginActivity.class);
+        //prevent user from accessing applications after logging out
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
         finish();
     }

@@ -16,7 +16,7 @@
         android:layout_margin="40dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Welcome to the Job Application Tracker"
+        android:text="@string/welcome_message"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/theme1Dark" />
 
@@ -27,7 +27,7 @@
         android:layout_marginBottom="40dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="All Applications. One place."
+        android:text="@string/caption"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/theme2Dark" />
 
@@ -36,8 +36,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:autofillHints="username"
         android:ems="10"
-        android:hint="username"
+        android:hint="@string/username"
+        android:inputType="text"
         android:minHeight="48dp" />
 
     <EditText
@@ -46,8 +48,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_weight="1"
+        android:autofillHints="password"
         android:ems="10"
-        android:hint="password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:minHeight="48dp" />
 
@@ -56,14 +59,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Login" />
+        android:text="@string/login" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Register" />
+        android:text="@string/register" />
 
 
 </LinearLayout>

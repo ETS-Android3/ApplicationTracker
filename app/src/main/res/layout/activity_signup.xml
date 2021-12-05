@@ -9,31 +9,57 @@
     android:orientation="vertical"
     tools:context=".SignupActivity">
 
+    <TextView
+        android:id="@+id/tvWelcome2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/welcome_message"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/theme1Dark" />
+
+    <TextView
+        android:id="@+id/tvCaption2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/signup_instructions"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/theme2Dark" />
+
     <EditText
         android:id="@+id/etNewUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:autofillHints="username"
         android:ems="10"
-        android:hint="username"
+        android:hint="@string/username"
+        android:inputType="text"
         android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/etNewPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="password"
+        android:hint="@string/password"
         android:inputType="textPassword"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:autofillHints="password" />
 
     <Button
         android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Signup" />
+        android:text="@string/signup" />
 
 
 </LinearLayout>

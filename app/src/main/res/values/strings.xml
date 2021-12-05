@@ -12,4 +12,12 @@
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
+    <string name="welcome_message">Welcome to the Job Application Tracker</string>
+    <string name="signup_instructions">Create an account:</string>
+    <string name="password">password</string>
+    <string name="signup">Sign Up</string>
+    <string name="username">username</string>
+    <string name="caption">All Applications. One place.</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
 </resources>

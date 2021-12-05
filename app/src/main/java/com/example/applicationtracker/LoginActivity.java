@@ -55,6 +55,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void goMainActivity() {
         Intent i = new Intent(this, MainActivity.class);
+        //prevent user from accessing signup/login pages without logging out
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(i);
         finish();
     }
@@ -62,6 +64,6 @@ public class LoginActivity extends AppCompatActivity {
     private void goSignupActivity() {
         Intent i = new Intent(this, SignupActivity.class);
         startActivity(i);
-        finish();
+        //finish(); //- we want user to be able to go back to welcome page maybe?
     }
 }
