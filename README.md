@@ -14,7 +14,7 @@ Application Tracker helps the user maintain a list of job applications and the s
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://www.youtube.com/watch?v=jwqyEwY5sgs' title='Demo' width='' alt='Video Walkthrough' />
+Demo Video: https://www.youtube.com/watch?v=jwqyEwY5sgs
 
 <img src='walkthrough4.gif' title='GIF Walkthrough' width='' alt='GIF Walkthrough' />
 
