@@ -16,6 +16,8 @@ Here's a walkthrough of implemented user stories:
 
 Demo Video: https://www.youtube.com/watch?v=jwqyEwY5sgs
 
+<img src='finalWalkthrough.gif' title='Final GIF Walkthrough' width='' alt='GIF Walkthrough' />
+
 <img src='walkthrough4.gif' title='GIF Walkthrough' width='' alt='GIF Walkthrough' />
 
 <img src='walkthrough3.gif' title='GIF Walkthrough' width='' alt='GIF Walkthrough' />
